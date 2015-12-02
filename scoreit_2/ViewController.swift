@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ViewController: UIViewController, KnockDetectorDelegate {
     // MARK: Properties
@@ -30,6 +31,7 @@ class ViewController: UIViewController, KnockDetectorDelegate {
 
     func knockDetectorDetectedKnock(detector: KnockDetector, atTime time: NSTimeInterval){
         self.knockLabel.alpha = 1
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         UIView.animateWithDuration(0.6, delay: 0.1, options: [.AllowUserInteraction, .CurveEaseOut], animations: {
             () -> Void in
                 self.knockLabel.alpha = 0
