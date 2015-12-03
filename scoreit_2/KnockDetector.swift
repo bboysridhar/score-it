@@ -43,6 +43,7 @@ class KnockDetector {
     init(){
         self.isOn = false
         self.alg = hpf()
+        self.motionManager.deviceMotionUpdateInterval = 0.01
         self.tuneAlgorithmToCutoffFrequency(15.0, minimumAcceleration: 0.75, minimumKnockSeparation: 0.1)
     }
     
