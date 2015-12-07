@@ -44,7 +44,7 @@ class KnockDetector {
         self.isOn = false
         self.alg = hpf()
         self.motionManager.deviceMotionUpdateInterval = 0.01
-        self.tuneAlgorithmToCutoffFrequency(15.0, minimumAcceleration: 0.75, minimumKnockSeparation: 0.1)
+        //self.tuneAlgorithmToCutoffFrequency(cutoffFrequency, minimumAcceleration: 0.75, minimumKnockSeparation: 0.1)
     }
     
     func setIsOn(isOn: Bool){
@@ -52,6 +52,10 @@ class KnockDetector {
             isOn ? self._start() : self._stop()
         }
         self.isOn = isOn
+    }
+    
+    func setCutOffFrequency(cutoffFrequency: Double = 15.0){
+        self.tuneAlgorithmToCutoffFrequency(cutoffFrequency, minimumAcceleration: 0.75, minimumKnockSeparation: 0.1)
     }
     
     /**
