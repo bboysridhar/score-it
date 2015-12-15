@@ -8,28 +8,34 @@
 
 import UIKit
 import AudioToolbox
+import CoreMotion
 
 class ViewController: UIViewController, KnockDetectorDelegate {
     // MARK: Properties
-    var scoreItKnockDetector: KnockDetector = KnockDetector()
+    //var scoreItKnockDetector: KnockDetector = KnockDetector()
     @IBOutlet weak var knockLabel: UILabel!
     @IBOutlet weak var freqLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
+    private unowned let motionManager = CMMotionManager()
     
     @IBAction func slider(sender: UISlider) {
-        self.scoreItKnockDetector.setIsOn(false)
-        self.scoreItKnockDetector.alg = hpf()
-        let currentValue = fabs(Double(slider.value))
-        self.scoreItKnockDetector.setCutOffFrequency(currentValue)
-        freqLabel.text = "\(currentValue)"
-        self.scoreItKnockDetector.setIsOn(true)
+//        self.scoreItKnockDetector.setIsOn(false)
+//        self.scoreItKnockDetector.alg = hpf()
+//        let currentValue = fabs(Double(slider.value))
+//        self.scoreItKnockDetector.setCutOffFrequency(currentValue)
+//        freqLabel.text = "\(currentValue)"
+//        self.scoreItKnockDetector.setIsOn(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.knockLabel.alpha = 0
-        self.scoreItKnockDetector.delegate = self
+        self.slider.alpha = 0
+        //self.scoreItKnockDetector.delegate = self
+        
+        let a = AccelSpikeDetector(deviceManager: motionManager)
+        a.resumeAccSensing()
     }
 
     override func didReceiveMemoryWarning() {

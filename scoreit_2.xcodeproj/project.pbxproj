@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4F1AD8701C15E17800BADDF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD86F1C15E17800BADDF4 /* Main.storyboard */; };
+		4F1AD8721C1AA05800BADDF4 /* AccelSpikeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AD8711C1AA05800BADDF4 /* AccelSpikeDetector.swift */; };
+		4F1AD8741C1AA0CC00BADDF4 /* PatternRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AD8731C1AA0CC00BADDF4 /* PatternRecognizer.swift */; };
+		4F1AD8761C1AA0F400BADDF4 /* KnockRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AD8751C1AA0F400BADDF4 /* KnockRecognizer.swift */; };
+		4F1AD8781C1B1ED800BADDF4 /* KnockRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AD8771C1B1ED800BADDF4 /* KnockRecognizerDelegate.swift */; };
 		4FE7E3531C0C61DB002E7D2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE7E3521C0C61DB002E7D2A /* AppDelegate.swift */; };
 		4FE7E3551C0C61DB002E7D2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE7E3541C0C61DB002E7D2A /* ViewController.swift */; };
 		4FE7E35A1C0C61DB002E7D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FE7E3591C0C61DB002E7D2A /* Assets.xcassets */; };
@@ -17,6 +21,10 @@
 
 /* Begin PBXFileReference section */
 		4F1AD86F1C15E17800BADDF4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4F1AD8711C1AA05800BADDF4 /* AccelSpikeDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelSpikeDetector.swift; sourceTree = "<group>"; };
+		4F1AD8731C1AA0CC00BADDF4 /* PatternRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternRecognizer.swift; sourceTree = "<group>"; };
+		4F1AD8751C1AA0F400BADDF4 /* KnockRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnockRecognizer.swift; sourceTree = "<group>"; };
+		4F1AD8771C1B1ED800BADDF4 /* KnockRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnockRecognizerDelegate.swift; sourceTree = "<group>"; };
 		4FE7E34F1C0C61DB002E7D2A /* scoreit_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoreit_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE7E3521C0C61DB002E7D2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FE7E3541C0C61DB002E7D2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F1AD8791C1B1F3500BADDF4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4F1AD8771C1B1ED800BADDF4 /* KnockRecognizerDelegate.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		4FE7E3461C0C61DB002E7D2A = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +72,7 @@
 		4FE7E3511C0C61DB002E7D2A /* scoreit_2 */ = {
 			isa = PBXGroup;
 			children = (
+				4F1AD8791C1B1F3500BADDF4 /* Protocols */,
 				4FE7E3701C0DD143002E7D2A /* Modules */,
 				4FE7E3521C0C61DB002E7D2A /* AppDelegate.swift */,
 				4FE7E3541C0C61DB002E7D2A /* ViewController.swift */,
@@ -71,6 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				4FE7E3711C0DD154002E7D2A /* KnockDetector.swift */,
+				4F1AD8711C1AA05800BADDF4 /* AccelSpikeDetector.swift */,
+				4F1AD8731C1AA0CC00BADDF4 /* PatternRecognizer.swift */,
+				4F1AD8751C1AA0F400BADDF4 /* KnockRecognizer.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -152,8 +172,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FE7E3721C0DD154002E7D2A /* KnockDetector.swift in Sources */,
+				4F1AD8741C1AA0CC00BADDF4 /* PatternRecognizer.swift in Sources */,
+				4F1AD8721C1AA05800BADDF4 /* AccelSpikeDetector.swift in Sources */,
 				4FE7E3551C0C61DB002E7D2A /* ViewController.swift in Sources */,
+				4F1AD8761C1AA0F400BADDF4 /* KnockRecognizer.swift in Sources */,
 				4FE7E3531C0C61DB002E7D2A /* AppDelegate.swift in Sources */,
+				4F1AD8781C1B1ED800BADDF4 /* KnockRecognizerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
