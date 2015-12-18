@@ -21,7 +21,7 @@ public class KnockRecognizer{
         mAccelSpikeDetector = AccelSpikeDetector(deviceManager: deviceManager)
         mAccelSpikeDetector.resumeAccSensing()
         // Initialize the timer
-        NSTimer.scheduledTimerWithTimeInterval(25, target: self, selector: "eventGenerator", userInfo: nil, repeats: true)
+        //NSTimer.scheduledTimerWithTimeInterval(25, target: self, selector: "eventGenerator", userInfo: nil, repeats: true)
     }
     
     private enum EventGenState_t {
@@ -29,7 +29,7 @@ public class KnockRecognizer{
     }
     
     private func eventGenerator(){
-        var nTicks: Int = 0
+        //var nTicks: Int = 0
         var state = EventGenState_t.NoneSet
         switch state {
             case .NoneSet:
@@ -39,7 +39,7 @@ public class KnockRecognizer{
                     // Generate Knock Event
                     
             }
-            nTicks = 0
+            //nTicks = 0
         }
     }
 }

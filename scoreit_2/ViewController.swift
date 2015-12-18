@@ -16,7 +16,7 @@ class ViewController: UIViewController, KnockDetectorDelegate {
     @IBOutlet weak var knockLabel: UILabel!
     @IBOutlet weak var freqLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
-    private unowned let motionManager = CMMotionManager()
+    private let motionManager = CMMotionManager()
     
     @IBAction func slider(sender: UISlider) {
 //        self.scoreItKnockDetector.setIsOn(false)
@@ -34,7 +34,7 @@ class ViewController: UIViewController, KnockDetectorDelegate {
         self.slider.alpha = 0
         //self.scoreItKnockDetector.delegate = self
         
-        let a = AccelSpikeDetector(deviceManager: motionManager)
+        let a = AccelSpikeDetector(deviceManager: self.motionManager)
         a.resumeAccSensing()
     }
 
