@@ -13,7 +13,7 @@
 
 import Foundation
 import CoreMotion
-import AudioToolbox
+//import AudioToolbox
 
 public class AccelSpikeDetector{
 
@@ -74,8 +74,8 @@ public class AccelSpikeDetector{
     
     private func accTapEvent(){
         spikeDetected = true
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-        NSLog("Spike Detected")
+        //AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        NSLog("AccelSpikeDetector: Spike Detected")
     }
 }
 

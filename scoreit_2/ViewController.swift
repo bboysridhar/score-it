@@ -10,7 +10,7 @@ import UIKit
 import AudioToolbox
 import CoreMotion
 
-class ViewController: UIViewController, KnockDetectorDelegate {
+class ViewController: UIViewController, KnockRecognizerDelegate {
     // MARK: Properties
     //var scoreItKnockDetector: KnockDetector = KnockDetector()
     @IBOutlet weak var knockLabel: UILabel!
@@ -33,25 +33,36 @@ class ViewController: UIViewController, KnockDetectorDelegate {
         self.knockLabel.alpha = 0
         self.slider.alpha = 0
         //self.scoreItKnockDetector.delegate = self
-        
-        let a = AccelSpikeDetector(deviceManager: self.motionManager)
-        a.resumeAccSensing()
+        let k = KnockRecognizer(deviceManager: self.motionManager)
+        k.delegate = self
+        //let a = AccelSpikeDetector(deviceManager: self.motionManager)
+        //a.resumeAccSensing()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func knockDetectorDetectedKnock(detector: KnockDetector, atTime time: NSTimeInterval){
+    
+    func knockDetected(knockCount: Int){
+        self.knockLabel.text = "Score : \(knockCount)"
         self.knockLabel.alpha = 1
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         UIView.animateWithDuration(0.6, delay: 0.1, options: [.AllowUserInteraction, .CurveEaseOut], animations: {
-            () -> Void in
-                self.knockLabel.alpha = 0
-            }, completion: nil)
-    
-        NSLog("Knock detected! at time %f", time);
+                    () -> Void in
+                        self.knockLabel.alpha = 0
+                    }, completion: nil)
     }
+
+//    func knockDetectorDetectedKnock(detector: KnockDetector, atTime time: NSTimeInterval){
+//        self.knockLabel.alpha = 1
+//        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+//        UIView.animateWithDuration(0.6, delay: 0.1, options: [.AllowUserInteraction, .CurveEaseOut], animations: {
+//            () -> Void in
+//                self.knockLabel.alpha = 0
+//            }, completion: nil)
+//    
+//        NSLog("Knock detected! at time %f", time);
+//    }
 }
 
