@@ -22,21 +22,16 @@ public class KnockRecognizer:NSObject {
     */
     private let maxTimeBetweenEvents:NSTimeInterval = 0.05 // 50 milliseconds
     
-    init(deviceManager: CMMotionManager){
+    init(_ deviceManager: CMMotionManager, state: PatternRecognitionState_t){
         super.init()
         
         mAccelSpikeDetector = AccelSpikeDetector(deviceManager: deviceManager)
         mAccelSpikeDetector!.resumeAccSensing()
         
-        mPatt = PatternRecognizer(self)
-        
+        mPatt = PatternRecognizer(self,patternState: state)
         eventGenerator()
     }
-    
-    private enum EventGenState_t {
-        case NoneSet, VolumSet, AccelSet
-    }
-    
+        
     // @objc decoration to let objective-c base access the private function
     @objc private func timerTick(timerFireMethod: NSTimer){
         //generate knock event

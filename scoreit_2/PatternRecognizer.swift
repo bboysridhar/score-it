@@ -20,8 +20,11 @@ public class PatternRecognizer: NSObject{
     private unowned var kRecognizer: KnockRecognizer
     private var detectedKnockCount:Int = 0
     
-    init(_ parent: KnockRecognizer){
-        kRecognizer = parent    }
+    init(_ parent: KnockRecognizer, patternState: PatternRecognitionState_t = PatternRecognitionState_t.Single){
+        kRecognizer = parent
+        self.state = patternState == PatternRecognitionState_t.Single ? EventGenState_t.S4 : EventGenState_t.Wait
+    }
+    
     private enum EventGenState_t {
         case Wait, S1, S2, S3, S4
     }
@@ -44,12 +47,10 @@ public class PatternRecognizer: NSObject{
             state = .S1
         case .S1:
             detectedKnockCount++
-            timerFuture!.invalidate()
             startTimer(minWaitTime_ms)
             state = .S2
         case .S2:
             detectedKnockCount++
-            timerFuture!.invalidate()
             startTimer(minWaitTime_ms)
             state = .S3
         case .S3:
@@ -57,11 +58,11 @@ public class PatternRecognizer: NSObject{
             startTimer(minWaitTime_ms)
             state = .S4
         case .S4:
-            timerFuture!.invalidate()
+            if timerFuture != nil {
+                timerFuture!.invalidate()
+            }
             kRecognizer.delegate!.knockDetected(detectedKnockCount)
-            detectedKnockCount = 0
-            state = .Wait
-        }
+            detectedKnockCount = 0        }
     }
     
     // @objc decoration to let objective-c base access the private function
