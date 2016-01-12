@@ -33,7 +33,7 @@ class ViewController: UIViewController, KnockRecognizerDelegate {
         self.knockLabel.alpha = 0
         self.slider.alpha = 0
         //self.scoreItKnockDetector.delegate = self
-        let k = KnockRecognizer(self.motionManager, state: PatternRecognitionState_t.Single)
+        let k = KnockRecognizer(self.motionManager)
         k.delegate = self
         //let a = AccelSpikeDetector(deviceManager: self.motionManager)
         //a.resumeAccSensing()

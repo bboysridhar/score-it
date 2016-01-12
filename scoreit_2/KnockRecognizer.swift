@@ -22,13 +22,13 @@ public class KnockRecognizer:NSObject {
     */
     private let maxTimeBetweenEvents:NSTimeInterval = 0.05 // 50 milliseconds
     
-    init(_ deviceManager: CMMotionManager, state: PatternRecognitionState_t){
+    init(_ deviceManager: CMMotionManager){
         super.init()
         
         mAccelSpikeDetector = AccelSpikeDetector(deviceManager: deviceManager)
         mAccelSpikeDetector!.resumeAccSensing()
         
-        mPatt = PatternRecognizer(self,patternState: state)
+        mPatt = PatternRecognizer(self)
         eventGenerator()
     }
         

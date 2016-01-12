@@ -72,6 +72,7 @@
 		4FE7E3511C0C61DB002E7D2A /* scoreit_2 */ = {
 			isa = PBXGroup;
 			children = (
+				4FFF49141C3E2A9B00C4F84A /* Enums */,
 				4F1AD8791C1B1F3500BADDF4 /* Protocols */,
 				4FE7E3701C0DD143002E7D2A /* Modules */,
 				4FE7E3521C0C61DB002E7D2A /* AppDelegate.swift */,
@@ -93,6 +94,13 @@
 				4F1AD8751C1AA0F400BADDF4 /* KnockRecognizer.swift */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		4FFF49141C3E2A9B00C4F84A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
